@@ -7,6 +7,12 @@ using UnityEngine.UI;
 public class TrackHandler : MonoBehaviour
 {
     public Text debugText;
+    public List<GameObject> roomPrefabs = new List<GameObject>();
+
+    public void Start()
+    {
+        this.debugText.text = "NONE";
+    }
 
     public void OnTrackedImageChange(ARTrackablesChangedEventArgs<ARTrackedImage> args)
     {
@@ -69,7 +75,7 @@ public class TrackHandler : MonoBehaviour
             this.debugText.text = "cat scanned!";
         }
 
-
+        this.debugText.text = "NONE";
 
     }
 }

@@ -159,11 +159,11 @@ namespace LilLycanLord_Official
             {
                 activeListContent.SetActive(SceneManager.GetActiveScene().name == "Tasks");
                 //: NOTE: Enable this if-block on build/implementation.
-                // if (SceneManager.GetActiveScene().name == "Tasks")
-                // {
-                //     generalCanvas.enabled = false;
-                //     expiredTaskList.enabled = false;
-                // }
+                if (SceneManager.GetActiveScene().name == "Tasks")
+                {
+                    generalCanvas.enabled = false;
+                    expiredTaskList.enabled = false;
+                }
             }
 
             activeTaskList.enabled = expiredListContent.transform.childCount == 0;
