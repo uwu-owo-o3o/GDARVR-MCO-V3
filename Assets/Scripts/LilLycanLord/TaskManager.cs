@@ -153,7 +153,14 @@ namespace LilLycanLord_Official
         }
 
         void Update()
-        {
+        {   
+            if (SceneManager.GetActiveScene().name != "Tasks")
+            {
+                this.activeTaskList.gameObject.SetActive(false);
+                this.expiredTaskList.gameObject.SetActive(false);
+                this.generalCanvas.gameObject.SetActive(false);
+            }
+
             // Debug.Log(SceneManager.GetActiveScene().name);
             if (activeListContent != null)
             {
