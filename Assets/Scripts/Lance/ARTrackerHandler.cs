@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.UI;
-using TMPro;
 
 public class TrackHandler : MonoBehaviour
 {
-    public ARTrackedImageManager ARTrackedImageManager;
-    public TMP_Text debugText;
+    public Text debugText;
 
     public void OnTrackedImageChange(ARTrackablesChangedEventArgs<ARTrackedImage> args)
     {
         foreach (var image in args.added)
         {
             Debug.Log("image name: " + image.referenceImage.name);
+            this.checkImageScanned(image.referenceImage.name);
             //Debug.Log("image type:" + image.gameObject.GetType());
 
         }
@@ -65,7 +64,10 @@ public class TrackHandler : MonoBehaviour
         {
             this.debugText.text = "observatory scanned!";
         }
-
+        else if (name.Contains("cat"))
+        {
+            this.debugText.text = "cat scanned!";
+        }
 
 
 
