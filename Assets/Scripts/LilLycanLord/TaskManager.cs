@@ -160,6 +160,12 @@ namespace LilLycanLord_Official
                 this.expiredTaskList.gameObject.SetActive(false);
                 this.generalCanvas.gameObject.SetActive(false);
             }
+            else
+            {
+                this.activeTaskList.gameObject.SetActive(true);
+                this.expiredTaskList.gameObject.SetActive(true);
+                this.generalCanvas.gameObject.SetActive(true);
+            }
 
             // Debug.Log(SceneManager.GetActiveScene().name);
             if (activeListContent != null)
@@ -168,7 +174,7 @@ namespace LilLycanLord_Official
                 //: NOTE: Enable this if-block on build/implementation.
                 if (SceneManager.GetActiveScene().name == "Tasks")
                 {
-                    generalCanvas.enabled = false;
+                    generalCanvas.enabled = true;
                     expiredTaskList.enabled = false;
                 }
             }
