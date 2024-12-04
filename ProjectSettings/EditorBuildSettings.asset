@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TrackTest.unity
     guid: 53ee00d2c89b6c64384e6cc2b58b2a1c
+  - enabled: 1
+    path: Assets/Scenes/Tasks.unity
+    guid: f8dc56be647c4564999d8c6e981c87f7
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 59ddbcc53c6b09c4d9894d142c8b0bd8,
       type: 2}
