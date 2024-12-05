@@ -10,6 +10,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2332144639781462177, guid: 7570bb1ddfc45594da920fede1bd6a12,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332144639781462177, guid: 7570bb1ddfc45594da920fede1bd6a12,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332144639781462177, guid: 7570bb1ddfc45594da920fede1bd6a12,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332144639781462177, guid: 7570bb1ddfc45594da920fede1bd6a12,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -61,7 +76,12 @@ PrefabInstance:
     - target: {fileID: 8943172575149487600, guid: 7570bb1ddfc45594da920fede1bd6a12,
         type: 3}
       propertyPath: m_Name
-      value: Kitchen Variant
+      value: Kitchen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8943172575149487600, guid: 7570bb1ddfc45594da920fede1bd6a12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

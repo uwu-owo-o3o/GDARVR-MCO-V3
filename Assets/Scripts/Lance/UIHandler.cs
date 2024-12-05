@@ -18,7 +18,7 @@ public class UIHandler : MonoBehaviour
        this.TitleScreen.SetActive(true);
 
        this.MenuScreen.SetActive(false);
-       this.InfoBtn.SetActive(false);
+       //this.InfoBtn.SetActive(false);
 
        this.Scoresheet.SetActive(false);
        this.AccuseScreen.SetActive(false);
@@ -31,7 +31,7 @@ public class UIHandler : MonoBehaviour
         this.TitleScreen.SetActive(false);
 
         this.MenuScreen.SetActive(true);
-        this.InfoBtn.SetActive(true);
+        //this.InfoBtn.SetActive(true);   
 
         this.Scoresheet.SetActive(false);
         this.AccuseScreen.SetActive(false);
@@ -44,7 +44,7 @@ public class UIHandler : MonoBehaviour
         this.TitleScreen.SetActive(false);
 
         this.MenuScreen.SetActive(false);
-        this.InfoBtn.SetActive(true);
+        //this.InfoBtn.SetActive(true);
 
         this.Scoresheet.SetActive(true);
         this.AccuseScreen.SetActive(false);
@@ -57,7 +57,7 @@ public class UIHandler : MonoBehaviour
         this.TitleScreen.SetActive(false);
 
         this.MenuScreen.SetActive(false);
-        this.InfoBtn.SetActive(true);
+        //this.InfoBtn.SetActive(true);
 
         this.Scoresheet.SetActive(false);
         this.AccuseScreen.SetActive(true);
@@ -70,7 +70,7 @@ public class UIHandler : MonoBehaviour
         this.TitleScreen.SetActive(false);
 
         this.MenuScreen.SetActive(false);
-        this.InfoBtn.SetActive(true);
+        //this.InfoBtn.SetActive(true);
 
         this.Scoresheet.SetActive(false);
         this.AccuseScreen.SetActive(false);
@@ -83,5 +83,10 @@ public class UIHandler : MonoBehaviour
         // load ar cam scene here //
         Debug.Log("Opened AR Camera Scene");
         SceneManager.LoadScene("TrackTest");
+    }
+
+    public void openTaskScene()
+    {
+        SceneManager.LoadScene("Tasks");
     }
 }

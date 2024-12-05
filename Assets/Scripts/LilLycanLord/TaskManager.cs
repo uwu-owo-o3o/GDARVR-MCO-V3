@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace LilLycanLord_Official
 {
@@ -153,17 +154,30 @@ namespace LilLycanLord_Official
         }
 
         void Update()
-        {
+        {   
+            if (SceneManager.GetActiveScene().name != "Tasks")
+            {
+                this.activeTaskList.gameObject.SetActive(false);
+                this.expiredTaskList.gameObject.SetActive(false);
+                this.generalCanvas.gameObject.SetActive(false);
+            }
+            else
+            {
+                this.activeTaskList.gameObject.SetActive(true);
+                this.expiredTaskList.gameObject.SetActive(true);
+                this.generalCanvas.gameObject.SetActive(true);
+            }
+
             // Debug.Log(SceneManager.GetActiveScene().name);
             if (activeListContent != null)
             {
                 activeListContent.SetActive(SceneManager.GetActiveScene().name == "Tasks");
                 //: NOTE: Enable this if-block on build/implementation.
-                // if (SceneManager.GetActiveScene().name == "Tasks")
-                // {
-                //     generalCanvas.enabled = false;
-                //     expiredTaskList.enabled = false;
-                // }
+                if (SceneManager.GetActiveScene().name == "Tasks")
+                {
+                    generalCanvas.enabled = true;
+                    expiredTaskList.enabled = false;
+                }
             }
 
             activeTaskList.enabled = expiredListContent.transform.childCount == 0;
@@ -174,15 +188,19 @@ namespace LilLycanLord_Official
         //* ║ Non - Monobehaviour ║
         //* ╚═════════════════════╝
         [ContextMenu("Get Task")]
-        public void GetTask()
+        public void GetTask(Text text)
         {
             if (Random.Range(1, taskChance) == 1)
             {
                 Debug.Log("Task Get!");
                 GameObject.Instantiate(taskPopUpPrefab, generalCanvas.transform);
+                text.text = "Task Acquired!";
             }
             else
+            {
                 Debug.Log("Failed to get task");
+            }
+                
         }
 
         public void AddTask(int taskID)
