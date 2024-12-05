@@ -14,6 +14,10 @@ public class TrackHandler : MonoBehaviour
     public void Start()
     {
         this.debugText.text = "NONE";
+        for (int i = 0; i < this.roomPrefabs.Count; i++)
+        {
+            this.roomPrefabs[i].SetActive(false);
+        }
     }
 
     public void OnTrackedImageChange(ARTrackablesChangedEventArgs<ARTrackedImage> args)
