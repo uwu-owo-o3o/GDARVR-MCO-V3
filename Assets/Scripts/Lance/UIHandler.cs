@@ -78,6 +78,11 @@ public class UIHandler : MonoBehaviour
         this.GameProfile.SetActive(true);
     }
 
+    public void openNotebook()
+    {
+        SceneManager.LoadScene("Detective Notebook");
+    }
+
     public void openARScene()
     {
         // load ar cam scene here //
