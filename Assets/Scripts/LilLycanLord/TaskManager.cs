@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace LilLycanLord_Official
 {
@@ -187,15 +188,19 @@ namespace LilLycanLord_Official
         //* ║ Non - Monobehaviour ║
         //* ╚═════════════════════╝
         [ContextMenu("Get Task")]
-        public void GetTask()
+        public void GetTask(Text text)
         {
             if (Random.Range(1, taskChance) == 1)
             {
                 Debug.Log("Task Get!");
                 GameObject.Instantiate(taskPopUpPrefab, generalCanvas.transform);
+                text.text = "Task Acquired!";
             }
             else
+            {
                 Debug.Log("Failed to get task");
+            }
+                
         }
 
         public void AddTask(int taskID)

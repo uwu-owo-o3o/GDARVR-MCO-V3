@@ -13,6 +13,6 @@ public class GoHome : MonoBehaviour
     
     public void debugGetTask()
     {
-        TaskManager.Instance.GetTask();
+        //TaskManager.Instance.GetTask();
     }
 }

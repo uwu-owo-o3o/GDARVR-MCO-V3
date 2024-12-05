@@ -8,7 +8,7 @@ using LilLycanLord_Official;
 public class TrackHandler : MonoBehaviour
 {
     public Text debugText;
-    public Text debugText2;
+    //public Text debugText2;
     public List<GameObject> roomPrefabs = new List<GameObject>();
     public List<GameObject> spawnedRooms = new List<GameObject>();
     public bool goScanFlag = false;
@@ -138,19 +138,21 @@ public class TrackHandler : MonoBehaviour
 
     public void callTaskManagerForTask()
     {
-        TaskManager.Instance.GetTask();
+        TaskManager.Instance.GetTask(this.debugText);
     }
 
     public void spawnRoom(int index, GameObject arImage)
     {
+        //this.debugText2.text = "count: " + this.spawnedRooms.Count;
         if (this.spawnedRooms.Count == 0)
         {
             //this.roomPrefabs[index].SetActive(true);
             GameObject roomspawned = Instantiate(this.roomPrefabs[index]);
             roomspawned.SetActive(true);
             roomspawned.transform.parent = null;
-            roomspawned.transform.position = arImage.transform.position;
-            this.debugText2.text = "pos: " + roomspawned.transform.position.x + " " + roomspawned.transform.position.z + " " + roomspawned.transform.position.y; 
+            roomspawned.transform.position += new Vector3(0, -1, 0.1f);
+            //roomspawned.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 2;
+            //this.debugText2.text = "pos: " + roomspawned.transform.position.x + " " + roomspawned.transform.position.z + " " + roomspawned.transform.position.y; 
             this.spawnedRooms.Add(roomspawned);
         }
        
@@ -165,13 +167,16 @@ public class TrackHandler : MonoBehaviour
         {
             Destroy(this.spawnedRooms[i]);
         }
+
+        this.spawnedRooms.Clear();
     }
 
     public void pressOkButton()
     {
-        this.debugText.text = "pressed ok!";
+        //this.debugText.text = "pressed ok!";
         this.destroySpawnedObjects();
         this.goScanFlag = true;
+        //this.debugText2.text = "flag: " + goScanFlag.ToString();
         this.okButton.SetActive(false);
     }
 }
