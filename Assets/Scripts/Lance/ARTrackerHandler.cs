@@ -122,7 +122,9 @@ public class TrackHandler : MonoBehaviour
         {
             //this.roomPrefabs[index].SetActive(true);
             GameObject roomspawned = Instantiate(this.roomPrefabs[index]);
-            roomspawned.transform.position = arImage.transform.position;
+            roomspawned.transform.parent = null;
+            roomspawned.SetActive(true);
+            roomspawned.transform.position = arImage.transform.position + new Vector3(0, 0, 5.0f);
             this.spawnedRooms.Add(roomspawned);
             
         }
