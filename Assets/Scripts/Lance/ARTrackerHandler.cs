@@ -103,7 +103,7 @@ public class TrackHandler : MonoBehaviour
             this.debugText.text = "cat scanned!";
         }
 
-        this.debugText.text = "NONE";
+        //this.debugText.text = "NONE";
      
     }
 
@@ -120,8 +120,9 @@ public class TrackHandler : MonoBehaviour
         }
         else
         {
+            //this.roomPrefabs[index].SetActive(true);
             GameObject roomspawned = Instantiate(this.roomPrefabs[index]);
-            //roomspawned.transform.position = arImage.transform.position;
+            roomspawned.transform.position = arImage.transform.position;
             this.spawnedRooms.Add(roomspawned);
             
         }
