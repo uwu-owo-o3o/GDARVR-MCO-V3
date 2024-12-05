@@ -1173,7 +1173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1208009645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1587,7 +1587,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugText: {fileID: 1015478547}
-  debugText2: {fileID: 1208009646}
   roomPrefabs:
   - {fileID: 7180903051280928178, guid: 74ec3c2eb136d9843aaf7990b91fecc3, type: 3}
   - {fileID: 2208911206933151937, guid: 9aa50034ae78ab640b15d20bea97c7af, type: 3}
