@@ -8,8 +8,11 @@ using LilLycanLord_Official;
 public class TrackHandler : MonoBehaviour
 {
     public Text debugText;
+    public Text debugText2;
     public List<GameObject> roomPrefabs = new List<GameObject>();
     public List<GameObject> spawnedRooms = new List<GameObject>();
+    public bool goScanFlag = false;
+    public GameObject okButton;
 
     public void Start()
     {
@@ -18,10 +21,18 @@ public class TrackHandler : MonoBehaviour
         {
             this.roomPrefabs[i].SetActive(false);
         }
+
+        this.okButton.SetActive(false);
+        this.goScanFlag = true;
     }
 
     public void OnTrackedImageChange(ARTrackablesChangedEventArgs<ARTrackedImage> args)
     {
+        if (!this.goScanFlag)
+        {
+            return;    
+        }
+
         foreach (var image in args.added)
         {
             Debug.Log("image name: " + image.referenceImage.name);
@@ -49,54 +60,72 @@ public class TrackHandler : MonoBehaviour
             this.debugText.text = "kitchen scanned!";
             this.callTaskManagerForTask();
             this.spawnRoom(0, arImage);
+            this.goScanFlag = false;
+            this.okButton.SetActive(true);
         }
         else if (name.Contains("dining"))
         {
             this.debugText.text = "dining scanned!";
             this.callTaskManagerForTask();
             this.spawnRoom(1, arImage);
+            this.goScanFlag = false;
+            this.okButton.SetActive(true);
         }
         else if (name.Contains("guesthouse"))
         {
             this.debugText.text = "guesthouse scanned!";
             this.callTaskManagerForTask();
             this.spawnRoom(2, arImage);
+            this.goScanFlag = false;
+            this.okButton.SetActive(true);
         }
         else if (name.Contains("patio"))
         {
             this.debugText.text = "patio scanned!";
             this.callTaskManagerForTask();
             this.spawnRoom(3, arImage);
+            this.goScanFlag = false;
+            this.okButton.SetActive(true);
         }
         else if (name.Contains("hall"))
         {
             this.debugText.text = "patio scanned!";
             this.callTaskManagerForTask();
             this.spawnRoom(4, arImage);
+            this.goScanFlag = false;
+            this.okButton.SetActive(true);
         }
         else if (name.Contains("spa"))
         {
             this.debugText.text = "spa scanned!";
             this.callTaskManagerForTask();
             this.spawnRoom(5, arImage);
+            this.goScanFlag = false;
+            this.okButton.SetActive(true);
         }
         else if (name.Contains("theatre"))
         {
             this.debugText.text = "theatre scanned!";
             this.callTaskManagerForTask();
             this.spawnRoom(6, arImage);
+            this.goScanFlag = false;
+            this.okButton.SetActive(true);
         }
         else if (name.Contains("living"))
         {
             this.debugText.text = "living scanned!";
             this.callTaskManagerForTask();
             this.spawnRoom(7, arImage);
+            this.goScanFlag = false;
+            this.okButton.SetActive(true);
         }
         else if (name.Contains("observatory"))
         {
             this.debugText.text = "observatory scanned!";
             this.callTaskManagerForTask();
             this.spawnRoom(8, arImage);
+            this.goScanFlag = false;
+            this.okButton.SetActive(true);
         }
         else if (name.Contains("cat"))
         {
@@ -109,24 +138,20 @@ public class TrackHandler : MonoBehaviour
 
     public void callTaskManagerForTask()
     {
-        //TaskManager.Instance.GetTask();
+        TaskManager.Instance.GetTask();
     }
 
     public void spawnRoom(int index, GameObject arImage)
     {
-        if (this.spawnedRooms.Count > 1)
-        {
-            destroySpawnedObjects();
-        }
-        else
+        if (this.spawnedRooms.Count == 0)
         {
             //this.roomPrefabs[index].SetActive(true);
             GameObject roomspawned = Instantiate(this.roomPrefabs[index]);
-            roomspawned.transform.parent = null;
             roomspawned.SetActive(true);
+            roomspawned.transform.parent = null;
             roomspawned.transform.position = arImage.transform.position;
+            this.debugText2.text = "pos: " + roomspawned.transform.position.x + " " + roomspawned.transform.position.z + " " + roomspawned.transform.position.y; 
             this.spawnedRooms.Add(roomspawned);
-            
         }
        
     }
@@ -142,4 +167,11 @@ public class TrackHandler : MonoBehaviour
         }
     }
 
+    public void pressOkButton()
+    {
+        this.debugText.text = "pressed ok!";
+        this.destroySpawnedObjects();
+        this.goScanFlag = true;
+        this.okButton.SetActive(false);
+    }
 }
